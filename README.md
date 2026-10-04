@@ -40,8 +40,8 @@ Source memories
 - **Gemma response**: Answering questions based *only* on retrieved context.
 - **Source memories**: Visible citations preventing hallucination.
 
-## Screenshots
-*(Add screenshots here)*
+
+
 1. Tell Mitra
 2. Gemma understanding
 3. Saved memory
