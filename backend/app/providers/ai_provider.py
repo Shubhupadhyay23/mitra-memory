@@ -27,12 +27,12 @@ def extract_memory_with_ai(text: str) -> Dict[str, Any]:
     """
     
     if AI_PROVIDER == "ollama":
-        return _call_ollama(prompt)
+        return _call_ollama(prompt, text)
     else:
         # Fallback to simple extraction if no real AI provider is configured
         return _mock_extraction(text)
 
-def _call_ollama(prompt: str) -> Dict[str, Any]:
+def _call_ollama(prompt: str, original_text: str) -> Dict[str, Any]:
     try:
         response = requests.post(
             "http://localhost:11434/api/generate",
@@ -49,7 +49,7 @@ def _call_ollama(prompt: str) -> Dict[str, Any]:
         return json.loads(result_text)
     except Exception as e:
         print(f"Ollama API Error: {e}")
-        return _mock_extraction(prompt) # fallback if ollama is not running
+        return _mock_extraction(original_text) # fallback if ollama is not running
 
 def _mock_extraction(text: str) -> Dict[str, Any]:
     return {
