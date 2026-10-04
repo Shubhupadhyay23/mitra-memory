@@ -11,12 +11,6 @@ This document strictly verifies and outlines the exact usage of Hacktoberfest 20
 - **How to configure:** Set `AI_PROVIDER=ollama` and `AI_MODEL=gemma` in your `.env`. Run Ollama locally.
 - **Proof/test:** The "How Mitra understood this" transparency panel visibly displays the latency and provider when a memory is processed. If Gemma is disabled, the system gracefully falls back to mock data.
 
-## Backboard
-- **Technology:** Remote memory sync wrapper
-- **Where used:** During the `POST /api/memories` save flow (`app/providers/backboard_provider.py`).
-- **Why it matters:** Implemented strictly as a fire-and-forget sync wrapper for the Hacktoberfest 2026 integration challenge. It allows memory states to optionally sync to a remote dashboard.
-- **How to configure:** Provide `BACKBOARD_API_KEY` in `.env`.
-- **Proof/test:** Watch backend stdout logs. If the API key is invalid/missing, the backend logs "Backboard API returned non-200 status. Using local fallback." The local SQLite DB continues operating perfectly.
 
 ## ElevenLabs
 - **Technology:** Voice Synthesis / TTS

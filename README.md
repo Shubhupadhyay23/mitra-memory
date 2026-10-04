@@ -95,7 +95,6 @@ AI_MODEL=gemma
 
 # Optional Hacktoberfest Partners
 ELEVENLABS_API_KEY=your_key
-BACKBOARD_API_KEY=your_key
 ```
 
 ## Limitations
@@ -104,7 +103,7 @@ BACKBOARD_API_KEY=your_key
 - **Public Demo:** The public Vercel/Render link uses Demo Mode by default if a remote Gemma endpoint is not configured.
 
 ## Partner Integrations
-See [`PARTNER_USAGE.md`](PARTNER_USAGE.md) for strict technical verification of how Gemma, ElevenLabs, and Backboard are actually used in this codebase.
+See [`PARTNER_USAGE.md`](PARTNER_USAGE.md) for strict technical verification of how Gemma and ElevenLabs are actually used in this codebase.
 
 ## License
 MIT

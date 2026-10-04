@@ -466,13 +466,13 @@ export default function Home() {
             <div className="w-12 h-12 bg-red-50 text-red-500 rounded-full flex items-center justify-center mx-auto mb-4"><Heart size={24} /></div>
             <div className="text-left bg-white p-6 rounded-2xl border border-slate-200">
               <h4 className="font-bold text-xs uppercase tracking-widest text-slate-400 mb-2">BUILT FOR:</h4>
-              <p className="font-semibold text-slate-800 mb-6">[REAL FRIEND NAME]</p>
+              <p className="font-semibold text-slate-800 mb-6">A friend who loses important information inside scattered messages and voice notes.</p>
               
               <h4 className="font-bold text-xs uppercase tracking-widest text-slate-400 mb-2">PROBLEM:</h4>
-              <p className="text-slate-600 mb-6">[REAL PROBLEM - e.g. losing important thoughts inside scattered voice notes and messy chats]</p>
+              <p className="text-slate-600 mb-6">Important details disappear across chats, voice notes, screenshots, and notes.</p>
               
               <h4 className="font-bold text-xs uppercase tracking-widest text-slate-400 mb-2">WHY IT MATTERS:</h4>
-              <p className="text-slate-600">[REAL EXPLANATION - e.g. This isn't just a tech demo—it's a tool for them.]</p>
+              <p className="text-slate-600">Mitra turns those scattered moments into memories that can be found again.</p>
             </div>
           </section>
 
@@ -502,7 +502,7 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm">
               <div>
                 <h4 className="font-bold text-slate-900 mb-1">WHAT MODEL?</h4>
-                <p className="text-slate-600">Gemma (via Ollama).</p>
+                <p className="text-slate-600">Gemma runs locally through Ollama during full local mode.</p>
               </div>
               <div>
                 <h4 className="font-bold text-slate-900 mb-1">WHERE DOES PROCESSING HAPPEN?</h4>
@@ -510,15 +510,11 @@ export default function Home() {
               </div>
               <div>
                 <h4 className="font-bold text-slate-900 mb-1">WHAT DATA IS STORED?</h4>
-                <p className="text-slate-600">Only extracted vectors and text in a local SQLite db (`mitra.db`).</p>
-              </div>
-              <div>
-                <h4 className="font-bold text-slate-900 mb-1">WHAT IS BACKBOARD USED FOR?</h4>
-                <p className="text-slate-600">A fire-and-forget sync wrapper designed specifically for the 2026 hackathon integration.</p>
+                <p className="text-slate-600">Local/self-hosted mode stores memories in SQLite.</p>
               </div>
               <div>
                 <h4 className="font-bold text-slate-900 mb-1">WHAT IS ELEVENLABS USED FOR?</h4>
-                <p className="text-slate-600">Natural voice synthesis for confirmation responses. Degrades gracefully if key missing.</p>
+                <p className="text-slate-600">ElevenLabs generates optional spoken confirmation responses after a memory is saved.</p>
               </div>
             </div>
           </section>
