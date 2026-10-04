@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { Mic, Send, Search, HelpCircle, ChevronRight, X, Info, CheckCircle2, Shield, Heart, Sparkles, Database, BrainCircuit, Activity } from "lucide-react";
 import axios from "axios";
 import { format } from "date-fns";
@@ -146,6 +146,14 @@ export default function Home() {
     ];
     setMemories([...demo, ...memories]);
   };
+
+  const graphData = useMemo(() => {
+    const people = Array.from(new Set(memories.flatMap(m => m.people || [])));
+    return people.map(person => {
+      const topics = Array.from(new Set(memories.filter(m => (m.people || []).includes(person)).flatMap(m => m.topics || [])));
+      return { person, topics };
+    });
+  }, [memories]);
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 font-sans pb-24">
@@ -388,14 +396,14 @@ export default function Home() {
                 <div className="text-center text-slate-400 pt-10">No memories to map.</div>
               ) : (
                 <div className="flex flex-wrap justify-center gap-12 items-start pt-8">
-                  {Array.from(new Set(memories.flatMap(m => m.people || []))).map((person, idx) => (
+                  {graphData.map((node, idx) => (
                     <div key={`p-${idx}`} className="flex flex-col items-center relative group">
                       <div className="bg-slate-900 text-white font-bold px-6 py-3 rounded-2xl shadow-lg z-10 hover:scale-105 transition cursor-pointer">
-                        {person}
+                        {node.person}
                       </div>
                       <div className="w-0.5 h-10 bg-slate-200 my-2 group-hover:bg-blue-300 transition"></div>
                       <div className="flex flex-col gap-3">
-                        {Array.from(new Set(memories.filter(m => (m.people || []).includes(person)).flatMap(m => m.topics || []))).map((t: any) => (
+                        {node.topics.map((t: any) => (
                           <span key={t} className="bg-blue-50 text-blue-700 font-medium text-sm px-4 py-2 rounded-xl border border-blue-100 shadow-sm">{t}</span>
                         ))}
                       </div>
